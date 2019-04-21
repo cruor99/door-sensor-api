@@ -1,7 +1,12 @@
 from flask import Blueprint
 from flask_restful import Api
 
-from doorapi.api.resources import UserResource, UserList
+from doorapi.api.resources import (
+    UserResource,
+    UserList,
+    DoorResource,
+    DoorList
+)
 
 
 blueprint = Blueprint('api', __name__, url_prefix='/api/v1')
@@ -10,3 +15,5 @@ api = Api(blueprint)
 
 api.add_resource(UserResource, '/users/<int:user_id>')
 api.add_resource(UserList, '/users')
+api.add_resource(DoorResource, '/sensor/<int:door_id>')
+api.add_resource(DoorList, '/sensor')
