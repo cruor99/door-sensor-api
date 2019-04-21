@@ -52,6 +52,7 @@ class DoorList(Resource):
 
     def post(self):
         schema = DoorSchema()
+        print(request.json)
         event, errors = schema.load(request.json)
         if errors:
             return errors, 422
